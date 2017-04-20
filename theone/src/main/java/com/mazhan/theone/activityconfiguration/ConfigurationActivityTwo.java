@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.mazhan.theone.R;
 
+import java.util.Arrays;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
@@ -23,6 +25,7 @@ public class ConfigurationActivityTwo extends Activity {
     @InjectView(R.id.btn_click)
     Button btn_click;
     TextView tv;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

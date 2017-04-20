@@ -11,6 +11,9 @@ import android.widget.Button;
 
 import com.mazhan.theone.R;
 
+import java.util.Arrays;
+import java.util.List;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
@@ -21,13 +24,16 @@ import butterknife.InjectView;
 public class ConfigurationActivityOne extends Activity {
     @InjectView(R.id.btn_click)
     Button btn_click;
-
+    private final static String TAG=ConfigurationActivityOne.class.getSimpleName()+"======:";
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i("onCreate=====one", "onCreate");
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
+        String[] df = {"dd", "edc","asdf"};
+        List<String> dtat= Arrays.asList(df);
+        Log.i(TAG,dtat.get(0));
         btn_click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,4 +78,5 @@ public class ConfigurationActivityOne extends Activity {
         super.onResume();
         Log.i("onResume=====one", "onResume");
     }
+
 }

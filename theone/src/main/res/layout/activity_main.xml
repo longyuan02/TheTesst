@@ -7,10 +7,10 @@
     android:layout_height="match_parent"
     tools:context="com.mazhan.theone.MainActivity">
 
-    <TextView
+    <com.mazhan.theone.activityconfiguration.DrawView
         android:id="@+id/tv_third"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
         android:text="Hello Third World!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -2,6 +2,7 @@ package com.mazhan.theone.viewgroup;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.LinearGradient;
 import android.graphics.Matrix;
@@ -9,6 +10,8 @@ import android.graphics.Paint;
 import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.widget.TextView;
+
+import com.mazhan.theone.R;
 
 /**
  * Created by dragonfly on 2017/4/21.
@@ -25,6 +28,7 @@ public class MyTextView extends TextView {
     //自定义的View 必须要重写两个或者三个参数的构造方法，才能在Eclipse视图浏览中查看效果。
     public MyTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        TypedArray ta=context.obtainStyledAttributes(attrs, R.styleable.TopBar);
     }
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {

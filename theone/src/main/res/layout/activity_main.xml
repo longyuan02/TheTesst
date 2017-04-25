@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.mazhan.theone.MainActivity">
 
-    <com.mazhan.theone.activityconfiguration.DrawView
+    <com.mazhan.theone.viewgroup.DrawTextView.DrawView
         android:id="@+id/tv_third"
         android:layout_width="200dp"
         android:layout_height="30dp"

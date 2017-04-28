@@ -14,10 +14,11 @@
         <!--com.mazhan.theone.recyclerview.RecyclerViewActivity-->
         <!--com.mazhan.theone.dagger2test.DaggerMainActivity-->
         <!--com.mazhan.theone.activityconfiguration.ConfigurationActivityOne-->
+        <!--com.mazhan.theone.listviewtest.ListViewActivity-->
         <activity
             android:name="com.mazhan.theone.activityconfiguration.ConfigurationActivityOne"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -25,7 +26,7 @@
         </activity>
         <activity
             android:name=".activityconfiguration.ConfigurationActivityTwo"
-            android:theme="@style/Transparent" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <activity
             android:name=".activityconfiguration.ConfigurationActivityThree"
@@ -48,6 +49,9 @@
             android:launchMode="standard"
             android:process=":romote"></activity>
 
+        <service
+            android:name="com.mazhan.theone.ipc.ServiceIntent"
+            android:enabled="true"></service>
     </application>
 
 </manifest>

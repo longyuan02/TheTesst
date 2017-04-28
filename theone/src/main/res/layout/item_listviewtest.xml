@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical">
-
-    <com.mazhan.theone.viewgroup.DrawTextViews
-        android:id="@+id/tv_third"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello Third World!" />
+    <TextView
+        android:id="@+id/tv_1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text=""/>
 
 </LinearLayout>

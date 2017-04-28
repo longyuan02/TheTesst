@@ -17,9 +17,13 @@ import android.widget.TextView;
  * Created by dragonfly on 2017/4/20.
  */
 
-public class DrawTextView extends View {
-    public DrawTextView(Context context) {
+public class DrawTextViews extends View {
+    public DrawTextViews(Context context) {
         super(context);
+    }
+
+    public DrawTextViews(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
     }
 
     @Override

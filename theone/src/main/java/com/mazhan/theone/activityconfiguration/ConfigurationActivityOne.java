@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.mazhan.theone.R;
+import com.mazhan.theone.ipc.ServiceIntent;
 
 import java.util.Arrays;
 import java.util.List;
@@ -39,6 +40,8 @@ public class ConfigurationActivityOne extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(ConfigurationActivityOne.this, ConfigurationActivityTwo.class);
                 startActivity(intent);
+//                Intent intentservice=new Intent(ConfigurationActivityOne.this, ServiceIntent.class);
+//                startService(intentservice);
             }
         });
     }

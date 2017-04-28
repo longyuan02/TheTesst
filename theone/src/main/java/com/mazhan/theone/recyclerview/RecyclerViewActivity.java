@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -26,6 +27,7 @@ import butterknife.InjectView;
 public class RecyclerViewActivity extends AppCompatActivity implements RecyclerCallBack {
     @InjectView(R.id.recyclerview)
     RecyclerView mRecyclerView;
+    private NormalRecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,11 +35,34 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerC
         setContentView(R.layout.activity_recyclerview);
         ButterKnife.inject(this);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(new NormalRecyclerViewAdapter(this, this));
+        adapter=new NormalRecyclerViewAdapter(this, this);
+        mRecyclerView.setAdapter(adapter);
+
+        mRecyclerView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()){
+                   case MotionEvent.ACTION_DOWN:
+                       break;
+                   case MotionEvent.ACTION_MOVE:
+                       float recyclerviewid=mRecyclerView.getChildAt(1).getY();
+                       float recyclerviewid2=mRecyclerView.getChildAt(2).getY();
+//                       Log.i("recyclerview=====:",recyclerviewid+"****"+recyclerviewid2);
+                       break;
+                   case MotionEvent.ACTION_UP:
+                    default:
+                        break;
+                }
+                return false;
+            }
+        });
     }
 
     @Override
     public void CallBack(int position) {
+        String[]dfd={"A+O","IOS2","JAVA3","C++2","Ruby","WEB","HTML","PERL","C","SWIFT"};
+        adapter.setmTitles(dfd);
+        adapter.notifyItemChanged(position,dfd);
         Log.i("recycler======:", "position:" + position);
     }
 
@@ -68,6 +93,7 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerC
                 ((NormalTextViewHolder) holder).mTextView.setText(mTitles[position]);
             } else if (holder instanceof ImageViewHolder) {
                 ((ImageViewHolder) holder).mTextView.setText(mTitles[position]);
+                ((ImageViewHolder) holder).mImageView.setTag("");
             }
         }
 
@@ -88,6 +114,14 @@ public class RecyclerViewActivity extends AppCompatActivity implements RecyclerC
         @Override
         public int getItemViewType(int position) {
             return position % 2 == 0 ? ITEM_TYPE.ITEM_TYPE_IMAGE.ordinal() : ITEM_TYPE.ITEM_TYPE_TEXT.ordinal();
+        }
+
+        public String[] getmTitles() {
+            return mTitles;
+        }
+
+        public void setmTitles(String[] mTitles) {
+            this.mTitles = mTitles;
         }
     }
 

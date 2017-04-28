@@ -20,7 +20,7 @@ public class DrawViewGroup extends View {
 
     public DrawViewGroup(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        TypedArray ta=context.obtainStyledAttributes(attrs, R.styleable.TopBar );
-        mLeftColor =ta.getColor(R.styleable.TopBar_titleTextColor,0);
+//        TypedArray ta=context.obtainStyledAttributes(attrs, R.styleable.TopBar );
+//        mLeftColor =ta.getColor(R.styleable.TopBar_titleTextColor,0);
     }
 }

@@ -32,10 +32,12 @@ public class ConfigurationActivityTwo extends Activity {
         Log.i("onCreatetwo=====", "onCreate");
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
+        btn_click.setText("第二个");
         btn_click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ConfigurationActivityTwo.this, ConfigurationActivityThree.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });

@@ -18,8 +18,10 @@
         <!--com.mazhan.theone.animation.AnimationActivityTest-->
         <!--com.mazhan.theone.androidfive.Clipping  控件裁剪效果-->
         <!--com.mazhan.theone.service.BindingActivity 绑定服务-->
+        <!--com.mazhan.theone.service.ActivityMessenger-->
+        <!--com.mazhan.theone.view.ViewTestActivity-->
         <activity
-            android:name="com.mazhan.theone.activityconfiguration.ConfigurationActivityOne"
+            android:name="com.mazhan.theone.view.ViewTestActivity"
             android:launchMode="singleTask"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>

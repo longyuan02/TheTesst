@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.mazhan.theone.R;
+import com.mazhan.theone.activitymanager.ManagerApplication;
 
 import java.util.Arrays;
 
@@ -31,14 +32,17 @@ public class ConfigurationActivityTwo extends Activity {
         super.onCreate(savedInstanceState);
         Log.i("onCreatetwo=====", "onCreate");
         setContentView(R.layout.activity_main);
+        ManagerApplication.getInstance().pushActivity(this);
         ButterKnife.inject(this);
         btn_click.setText("第二个");
         btn_click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ConfigurationActivityTwo.this, ConfigurationActivityThree.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+//                Intent intent = new Intent(ConfigurationActivityTwo.this, ConfigurationActivityThree.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//                startActivity(intent);
+                ManagerApplication.getInstance().finishActivity(ConfigurationActivityOne.class);
+//                ManagerApplication.getInstance().finishAllActivity();
             }
         });
     }

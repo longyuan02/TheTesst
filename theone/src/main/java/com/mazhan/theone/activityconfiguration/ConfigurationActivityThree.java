@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.mazhan.theone.R;
+import com.mazhan.theone.activitymanager.ManagerApplication;
 
 import java.lang.ref.WeakReference;
 
@@ -33,6 +34,7 @@ public class ConfigurationActivityThree extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ManagerApplication.getInstance().popActivity(ConfigurationActivityOne.configuratonac);
         Log.i("onCreate=====three", "onCreate");
         ButterKnife.inject(this);
         btn_click.setText("第三个");

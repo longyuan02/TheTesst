@@ -13,5 +13,27 @@
     <com.mazhan.theone.view.ScrollViewSlide
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="#ffff00"></com.mazhan.theone.view.ScrollViewSlide>
+        android:background="#ffff00"
+        android:visibility="gone"></com.mazhan.theone.view.ScrollViewSlide>
+
+    <ImageView
+        android:id="@+id/view"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#ffff00"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/view1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:background="#ff0f00"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="按钮" />
 </LinearLayout>

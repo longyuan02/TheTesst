@@ -14,10 +14,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.mazhan.theone.R;
+import com.mazhan.theone.activitymanager.ManagerApplication;
 import com.mazhan.theone.service.IMyBinder;
 import com.mazhan.theone.service.LocalService;
 import com.mazhan.theone.service.MyService;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.List;
 
@@ -29,6 +32,9 @@ import butterknife.InjectView;
  */
 
 public class ConfigurationActivityOne extends Activity {
+    public static DecimalFormat df2 = new DecimalFormat("###0.00"); // 保留小数点两位
+    public static DecimalFormat df22=new DecimalFormat("0.00");
+    public static ConfigurationActivityOne configuratonac = null;
     @InjectView(R.id.btn_click)
     Button btn_click;
     //    private IMyBinder myBinder;
@@ -40,8 +46,18 @@ public class ConfigurationActivityOne extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i("onCreate=====one", "onCreate");
         setContentView(R.layout.activity_main);
+        double d = 13.99;
+        d=((int)(d*100))/100;
+        String str2="14.6897";
+        int dfs=str2.indexOf(".");
+        int lenth=str2.length();
+        int startlen =dfs+2;
+        String end=str2.substring(0,startlen);
+        Log.i("onCreate=====one", "onCreate"+df22.format(5.189)+"***"+end);
+//        new DecimalFormat("0.00").format(244.025)
+        configuratonac = this;
+        ManagerApplication.getInstance().pushActivity(this);
         ButterKnife.inject(this);
         String[] df = {"dd", "edc", "asdf"};
         List<String> dtat = Arrays.asList(df);
@@ -50,13 +66,15 @@ public class ConfigurationActivityOne extends Activity {
         btn_click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(ConfigurationActivityOne.this, ConfigurationActivityTwo.class);
-//                startActivity(intent);
+                Intent intent = new Intent(ConfigurationActivityOne.this, ConfigurationActivityTwo.class);
+                startActivity(intent);
             }
         });
     }
 
-    /** Defines callbacks for service binding, passed to bindService() */
+    /**
+     * Defines callbacks for service binding, passed to bindService()
+     */
     private ServiceConnection conn = new ServiceConnection() {
 
         @Override
@@ -120,5 +138,19 @@ public class ConfigurationActivityOne extends Activity {
             finish();
         }
         return false;
+    }
+
+    public double round(double value) {
+        return Math.round(value * 100) / 100.0;
+    }
+    public static double round(double v,int scale){
+
+        if(scale<0){
+            throw new IllegalArgumentException(
+                    "The scale must be a positive integer or zero");
+        }
+        BigDecimal b = new BigDecimal(Double.toString(v));
+        BigDecimal one = new BigDecimal("1");
+        return b.divide(one,scale,BigDecimal.ROUND_HALF_UP).doubleValue();
     }
 }
